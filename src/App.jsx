@@ -70,7 +70,7 @@ function App() {
     const promiseList = await summary.map(async (el) => {
       const list = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: `Write a blog post on the topic of ${el} in html format, including subheadings. Write at least 2000 characters. Select a word from each subheading and use the unsplash api to insert an image of that word after the subheading.`,
+        prompt: `Write a blog post on the topic of ${el} in html format, including subheadings. Write at least 2000 words. Select a word from each subheading and use the unsplash api to insert an image of that word after the subheading.`,
         temperature: 0.9,
         max_tokens: 3500,
         top_p: 1,
