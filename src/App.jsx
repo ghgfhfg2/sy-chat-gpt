@@ -123,10 +123,9 @@ function App() {
         </button>
       </div>
       {isLoading ? (
-        <>loading...1</>
+        <>loading...</>
       ) : (
         <>
-          1
           <ul className="result">
             {resultList &&
               resultList.map((el, idx) => (
