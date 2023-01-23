@@ -37,6 +37,11 @@ const ChatGptComponent = styled.div`
 `;
 
 function App() {
+  const [maxLength, setmaxLength] = useState(3700);
+  const onChangeMax = (e) => {
+    setmaxLength(e.target.value);
+  };
+
   const [titleText, setTitleText] = useState();
   const [resTitle, setResTitle] = useState();
   const onChangeTitle = (e) => {
@@ -65,6 +70,7 @@ function App() {
   const [resultList, setResultList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const getResponse = async () => {
+    let leng = maxLength > 3900 ? 3900 : parseInt(maxLength);
     setIsLoading(true);
     let summary = requestText.split("\n");
     const promiseList = await summary.map(async (el) => {
@@ -72,7 +78,7 @@ function App() {
         model: "text-davinci-003",
         prompt: `Write a blog post on the topic of ${el} in html format, including subheadings. Write at least 2500 words. Select a word from each subheading and use the unsplash api to insert an image of that word after the subheading.`,
         temperature: 0.9,
-        max_tokens: 3700,
+        max_tokens: leng,
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0.6,
@@ -111,6 +117,11 @@ function App() {
         value={requestText}
         onChange={onChangeReq}
       ></textarea>
+      <div className="option_box">
+        글자 길이 수 :{" "}
+        <input type="number" value={maxLength} onChange={onChangeMax} />
+        (0~3900)
+      </div>
       <div className="btn_box">
         <button className="btn_clear" type="button" onClick={onClear}>
           clear
