@@ -123,7 +123,7 @@ function App() {
         </button>
       </div>
       {isLoading ? (
-        <>loading...</>
+        <>loading....</>
       ) : (
         <>
           <ul className="result">
