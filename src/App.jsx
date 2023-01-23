@@ -72,7 +72,7 @@ function App() {
         model: "text-davinci-003",
         prompt: `Decorate and write in html format with subheadings for ${el} topics. Write at least 1500 words. Select a word from the subheading and insert an image of that word right before the subheading using the unsplash api.`,
         temperature: 0.9,
-        max_tokens: 100,
+        max_tokens: 3500,
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0.6,
