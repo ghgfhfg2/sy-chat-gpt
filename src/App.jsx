@@ -126,6 +126,7 @@ function App() {
         <>loading...1</>
       ) : (
         <>
+          1
           <ul className="result">
             {resultList &&
               resultList.map((el, idx) => (
